@@ -1,0 +1,7 @@
+has_anti_imperialist_policy = {
+	always = yes # Stub fallback
+}
+
+has_imperialist_policy = {
+	always = yes # Stub fallback
+}
