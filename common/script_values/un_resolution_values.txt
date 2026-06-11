@@ -77,13 +77,9 @@ un_memberstates = {
 	round = yes
 }
 
+# ⚡ Bolt: Replaced O(N) every_country loop with O(1) lookup of un_memberstates
 required_support_un = {
-	every_country = {
-		limit = {
-			has_variable = un_member
-		}
-		add = 1
-	}
+	value = un_memberstates
 	multiply = 0.6
 	round = yes
 }
