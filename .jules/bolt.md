@@ -1,0 +1,3 @@
+## 2024-05-24 - Avoid redundant `every_country` loops in script values
+**Learning:** In Victoria 3 modding, `every_country` loops in script values are evaluated very frequently (every tick or frame), causing severe performance drops as they scale O(N) where N is the number of countries.
+**Action:** Avoid redundant `every_country` loops in script values. Reuse pre-calculated values by having other script values reference them using `value = base_script_value` to convert O(N) operations into O(1) lookups.
