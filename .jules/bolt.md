@@ -1,0 +1,3 @@
+## 2024-03-21 - [Avoid Redundant every_country Loops in Script Values]
+**Learning:** In Victoria 3 modding, using `every_country` inside a script value evaluates that loop every time the value is calculated. If multiple script values iterate over the same condition (like checking `has_variable = un_member`), it leads to O(N) redundant calculations.
+**Action:** Reuse pre-calculated script values. For example, instead of redefining an `every_country` loop in `required_support_un` to count UN members, I replaced it with `value = un_memberstates`. This converts the O(N) operations into an O(1) lookup, dramatically improving performance during heavy calculations like voting.
