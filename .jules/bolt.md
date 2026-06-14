@@ -1,0 +1,3 @@
+## 2024-06-14 - Redundant Script Value Loops
+**Learning:** In Victoria 3 modding, script values are often calculated iteratively across multiple countries. Using multiple `every_country` loops to calculate identical or derived values creates an O(N) bottleneck.
+**Action:** Always check if a script value loop recalculates a result that is already available in another script value. Reuse existing script values using `value = base_script_value` to turn O(N) operations into O(1) lookups.
