@@ -78,12 +78,8 @@ un_memberstates = {
 }
 
 required_support_un = {
-	every_country = {
-		limit = {
-			has_variable = un_member
-		}
-		add = 1
-	}
+	# Optimization: Reusing un_memberstates to convert O(N) loop to O(1) lookup
+	value = un_memberstates
 	multiply = 0.6
 	round = yes
 }
