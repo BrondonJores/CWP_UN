@@ -78,12 +78,9 @@ un_memberstates = {
 }
 
 required_support_un = {
-	every_country = {
-		limit = {
-			has_variable = un_member
-		}
-		add = 1
-	}
+	# ⚡ Bolt Optimization: Reuse un_memberstates to avoid redundant every_country loop parsing and improve file size
+	# 🎯 Impact: Reduces code duplication and parser overhead.
+	value = un_memberstates
 	multiply = 0.6
 	round = yes
 }
