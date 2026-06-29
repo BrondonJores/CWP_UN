@@ -1,0 +1,3 @@
+## 2024-05-18 - Avoid Redundant O(N) Loops in Script Values
+**Learning:** Clausewitz engine (Victoria 3) script values that use `every_country` loops to count tags are expensive O(N) operations. These can cause measurable lag if evaluated frequently (e.g., in GUI triggers, AI logic, or daily ticks). In this mod, `required_support_un` was running a redundant `every_country` loop when a centralized `un_memberstates` value already existed.
+**Action:** When working on Paradox script values, actively look for and replace redundant `every_country`, `every_state`, or `every_pop` loops with existing, centralized script values or global variables to reduce parser overhead and improve runtime performance.
