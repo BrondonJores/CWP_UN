@@ -78,12 +78,8 @@ un_memberstates = {
 }
 
 required_support_un = {
-	every_country = {
-		limit = {
-			has_variable = un_member
-		}
-		add = 1
-	}
+	# ⚡ Bolt: Reuse base script value to avoid redundant every_country loop evaluation
+	value = un_memberstates
 	multiply = 0.6
 	round = yes
 }
