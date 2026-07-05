@@ -1,0 +1,3 @@
+## 2024-07-05 - Avoid Redundant every_country Loops in Paradox Script Values
+**Learning:** In Paradox (Victoria 3) modding, `every_country` is an expensive loop. Some script values repeatedly calculate the same base metric (like total UN member states) using `every_country`. Because script values are evaluated dynamically at runtime, repeating these loops creates unnecessary performance overhead.
+**Action:** When a script value requires a metric already calculated in another script value, reuse the base value using `value = base_script_value` instead of duplicating the `every_country` loop block. This improves parser/file size efficiency and avoids duplicate iteration over all countries.
